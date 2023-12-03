@@ -1,0 +1,7 @@
+This is the main TODO file when it comes to ChatGTP 3.5 turbo prompt engineering. 
+
+This is where we needed to test to find good initial context statements and good constant prompts. 
+
+Please add good prompts to this file that have worked.
+
+We are using 3.5 turbo because it is faster and much cheaper to run. 

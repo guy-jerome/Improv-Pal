@@ -1,5 +1,6 @@
 import express from "express"
 import cors from 'cors'
+import chatbot from './chatbot'
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -17,6 +18,15 @@ app.get('/api/pal',(req,res)=>{
 app.post('/api/pal', (req,res)=>{
 
 })
+
+
+//This is the chatbot base function it takes in a object with this template:
+// [
+//     { role: 'system', content: systemContent },
+//     { role: 'user', content: userMessage },
+//     { role: 'assistant', content: assistantMessage }
+// ],
+chatbot.generateText({})
 
 app.listen(port, ()=>{
     console.log("Server Listening on Port:",port)
