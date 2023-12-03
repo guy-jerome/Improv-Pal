@@ -16,7 +16,7 @@ export default function App() {
 
   return (
       <>
-        <h1>Improve Buddy</h1>
+        <h1>Improv Pal</h1>
         <textarea value={response} readOnly></textarea>
         <input type="text" value={message} onChange={textChanged}/>
         <button onClick={sendMessage}>Send Message</button>
