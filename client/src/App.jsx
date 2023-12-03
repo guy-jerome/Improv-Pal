@@ -1,13 +1,19 @@
 import { useState } from "react";
+import axios from "axios";
 
 export default function App() {
 
   const [message,setMessage] = useState("");
   const [response,setResponse] = useState("");
 
-  function sendMessage(){
+  async function sendMessage(){
     setMessage("")
-    setResponse(message)
+    try{
+      const response = await axios.get('http://localhost:3000/api/pal')
+      setResponse(response.data)
+    }catch (error){
+      console.log(error)
+    }
   }
 
   function textChanged(event){
