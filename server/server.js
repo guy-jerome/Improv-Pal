@@ -20,15 +20,16 @@ app.use(cors())
 io.on('connection', (socket) => {
     console.log('A user connected');
 
-
-    //app.set('socket', socket);
+    socket.data = {
+        messages: [
+            { role: 'system', content: "You are a kind assistant" },
+        ]
+    }
     
     // Listen for messages from the client
     socket.on('message', async (data) => {
-        await chatbot(socket,"message",[
-            { role: 'system', content: "You are a kind assistant" },
-            { role: 'user', content: data },
-        ])
+        socket.data.messages.push({ role: 'user', content: data })
+        await chatbot(socket,"message")
 
     });
 
