@@ -20,15 +20,16 @@ app.use(cors())
 io.on('connection', (socket) => {
     console.log('A user connected');
 
+
+    //app.set('socket', socket);
+    
     // Listen for messages from the client
     socket.on('message', async (data) => {
-        console.log('Message from client:', data);
-        // Broadcast the message to all clients
-        let response = await chatbot([
+        await chatbot(socket,"message",[
             { role: 'system', content: "You are a kind assistant" },
             { role: 'user', content: data },
         ])
-        socket.emit('message', response);
+
     });
 
     socket.on('disconnect', () => {
