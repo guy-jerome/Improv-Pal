@@ -17,6 +17,7 @@ app.use(express.json())
 //This allows cross origin resource sharing across the board, after final build show remove
 app.use(cors()) 
 
+//SOCKET
 io.on('connection', (socket) => {
     console.log('A user connected');
 
@@ -41,19 +42,14 @@ io.on('connection', (socket) => {
 app.get('/', (req,res)=>{
     res.send("This is just a simple backend API")
 })
-app.get('/api/pal',(req,res)=>{
-    res.send("hello")
+
+server.listen(port, ()=>{
+    console.log("Server Listening on Port:",port)
 })
 
-
-//This is the chatbot base function it takes in a object with this template:
+//This is the Chatbot template:
 // [
 //     { role: 'system', content: systemContent },
 //     { role: 'user', content: userMessage },
 //     { role: 'assistant', content: assistantMessage }
 // ],
-
-
-server.listen(port, ()=>{
-    console.log("Server Listening on Port:",port)
-})
