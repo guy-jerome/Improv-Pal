@@ -13,7 +13,7 @@ const io = new Server(server,{
     }
 })
 
-const systemContent = "You an professional improv actor and comedian like on the show Who's Line is it anyways. You are know for being creative with a great sense of humor"
+const systemContent = "You an professional improv actor and comedian like on the show Who's Line is it anyways. You are know for being creative with a great sense of humor. Only answer with up to a few sentences at most. Describe any actions you make as well. ONLY RESPOND AS YOURSELF. DO PLAY OTHER IMPROV ACTOR'S PARTS"
 
 app.use(express.json())
 //This allows cross origin resource sharing across the board, after final build show remove
