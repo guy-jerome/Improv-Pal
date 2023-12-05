@@ -27,7 +27,7 @@
     padding: 8px;
     margin-right: 10px;
     border: 1px solid #bdc3c7; /* Light gray border */
-    border-radius: 5px;
+    border-radius: 1rem;
     font-size: 16px;
   }
   
@@ -36,11 +36,17 @@
     background-color: #2ecc71; /* Pastel green for the button */
     color: #fff; /* White text color */
     border: none;
-    border-radius: 5px;
+    border-radius: 1rem;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
+    margin: .5rem;
+    
+
   }
   
   button:hover {
     background-color: #27ae60; /* Darker green on hover */
+  }
+  button:active{
+    background-color: #9cb5a7;
   }
