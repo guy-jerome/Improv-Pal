@@ -1,9 +1,9 @@
 import express, { response } from "express"
 import cors from 'cors'
 import chatbot from './chatbot.js'
-import {Server} from "socket.io"
+import { Server } from "socket.io"
 import { createServer } from "http"
-
+import { getRandomScene } from './scenario.js'
 const app = express();
 const port = process.env.PORT || 3000;
 const server = createServer(app)
@@ -12,6 +12,8 @@ const io = new Server(server,{
       origin: '*'
     }
 })
+
+const systemContent = "You an professional improv actor and comedian like on the show Who's Line is it anyways. You are know for being creative with a great sense of humor"
 
 app.use(express.json())
 //This allows cross origin resource sharing across the board, after final build show remove
@@ -23,7 +25,7 @@ io.on('connection', (socket) => {
 
     socket.data = {
         messages: [
-            { role: 'system', content: "You are a kind assistant" },
+            { role: 'system', content: systemContent },
         ]
     }
     
@@ -41,6 +43,14 @@ io.on('connection', (socket) => {
 
 app.get('/', (req,res)=>{
     res.send("This is just a simple backend API")
+})
+
+app.get('/api/scenario', (req,res)=>{
+    res.status(200).json({scenario: getRandomScene()})
+})
+
+app.post('/api/scenario', (req,res)=>{
+    console.log(req.body)
 })
 
 server.listen(port, ()=>{
