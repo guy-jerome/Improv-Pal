@@ -18,15 +18,21 @@ export default function Chat({scenario, setScenario, updatePage}) {
     };
 
     socket.on('message', handleIncomingMessage);
-    (async ()=>{
-      await axios.post(apiUrl, {scenario:scenario})
-    })()
+    // Move the axios.post inside the useEffect and await it
+    const fetchData = async () => {
+      try {
+        await axios.post(apiUrl, { scenario: scenario });
+      } catch (error) {
+        console.error("Error in axios.post:", error);
+      }
+    };
 
+    fetchData(); // Call the function immediately
     return () => {
       // Cleanup: Remove the event listener when the component unmounts
       socket.off('message', handleIncomingMessage);
     };
-  }, []);
+  }, [scenario]);
 
   async function sendMessage(){
     setMessage("")

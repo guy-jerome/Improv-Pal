@@ -8,8 +8,15 @@ export default function Scenario({scenario, setScenario, updatePage}){
     },[]);
 
     async function getScenario(){
-        const response = await axios.get(apiUrl)
-        setScenario(response.data.scenario)
+        try{
+            console.log("pressing")
+            const response = await axios.get(apiUrl)
+            console.log(response)
+            setScenario(response.data.scenario)
+        }catch (error){
+            console.error("Error in the axios call",error)
+        }
+
 
     }
 

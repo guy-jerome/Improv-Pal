@@ -46,11 +46,16 @@ app.get('/', (req,res)=>{
 })
 
 app.get('/api/scenario', (req,res)=>{
-    res.status(200).json({scenario: getRandomScene()})
+    try{
+        res.status(200).json({scenario: getRandomScene()})
+    }catch (error){
+        res.status(500).json({error: "Internal Error"})
+    }
+
 })
 
 app.post('/api/scenario', (req,res)=>{
-    console.log(req.body)
+    res.status(200).json({message: "Scenario Saved"})
 })
 
 server.listen(port, ()=>{

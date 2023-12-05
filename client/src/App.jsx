@@ -16,7 +16,7 @@ export default function App() {
       {page === "scenario" ? (
           <Scenario scenario={scenario} setScenario={setScenario} updatePage={updatePage} />
         ) : page === "chat" ? (
-          <Chat updatePage={updatePage}/>
+          <Chat scenario={scenario} setScenario={setScenario} updatePage={updatePage}/>
         ) : (
           null // Default case if page value doesn't match any case
         )}
