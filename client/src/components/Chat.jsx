@@ -38,6 +38,12 @@ export default function Chat({scenario, setScenario, updatePage}) {
     setMessage(event.target.value)
   }
 
+  function handleKeyPress(event){
+    if (event.key === "Enter"){
+      sendMessage()
+    }
+  }
+
   function endImprov(){
     updatePage("scenario")
   }
@@ -46,7 +52,7 @@ export default function Chat({scenario, setScenario, updatePage}) {
     <div className="main">
       <h2>Frank</h2>
       <textarea value={response} readOnly id="chatArea"></textarea>
-      <input type="text" value={message} onChange={textChanged}/>
+      <input type="text" value={message} onChange={textChanged} onKeyPress={handleKeyPress}/>
       <button onClick={sendMessage}>Send Message</button>
       <button onClick={endImprov}>End Improve</button>
     </div>
