@@ -1,6 +1,6 @@
 import Chat from "./components/Chat.jsx"; 
 import Scenario from "./components/Scenario.jsx";
-import { useState } from "react";
+import { useState} from "react";
 export default function App() {
   const [scenario, setScenario] = useState("");
   const [page, setPage] = useState("scenario")

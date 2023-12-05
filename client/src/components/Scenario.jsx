@@ -9,9 +9,7 @@ export default function Scenario({scenario, setScenario, updatePage}){
 
     async function getScenario(){
         try{
-            console.log("pressing")
             const response = await axios.get(apiUrl)
-            console.log(response)
             setScenario(response.data.scenario)
         }catch (error){
             console.error("Error in the axios call",error)

@@ -1,16 +1,23 @@
 import { useState, useEffect } from "react";
-import socketIOClient from 'socket.io-client';
 import axios from "axios"
 import './chat.css';
+import socket from "../socket.js"; 
 
 const ENDPOINT = 'http://localhost:3000';
 const apiUrl = "http://localhost:3000/api/scenario"
-const socket = socketIOClient(ENDPOINT)
 
 export default function Chat({scenario, setScenario, updatePage}) {
 
   const [message,setMessage] = useState("");
   const [response,setResponse] = useState("");
+
+  const fetchData = async () => {
+    try {
+      await axios.post(apiUrl, { scenario: scenario });
+    } catch (error) {
+      console.error("Error in axios.post:", error);
+    }
+  };
 
   useEffect(() => {
     const handleIncomingMessage = (data) => {
@@ -19,13 +26,6 @@ export default function Chat({scenario, setScenario, updatePage}) {
 
     socket.on('message', handleIncomingMessage);
     // Move the axios.post inside the useEffect and await it
-    const fetchData = async () => {
-      try {
-        await axios.post(apiUrl, { scenario: scenario });
-      } catch (error) {
-        console.error("Error in axios.post:", error);
-      }
-    };
 
     fetchData(); // Call the function immediately
     return () => {
@@ -36,7 +36,7 @@ export default function Chat({scenario, setScenario, updatePage}) {
 
   async function sendMessage(){
     setMessage("")
-    setResponse(prevResponse => `${prevResponse}${prevResponse?'\n':""}User: ${message}\nFrank: `)
+    setResponse(prevResponse => `${prevResponse}${prevResponse?'\n\n':""}User: ${message}\n\nFrank: `)
     socket.emit("message", message)
   }
 
@@ -57,6 +57,7 @@ export default function Chat({scenario, setScenario, updatePage}) {
   return (
     <div className="main">
       <h2>Frank</h2>
+      <h3>Scenario: {scenario}</h3>
       <textarea value={response} readOnly id="chatArea"></textarea>
       <input type="text" value={message} onChange={textChanged} onKeyPress={handleKeyPress}/>
       <button onClick={sendMessage}>Send Message</button>

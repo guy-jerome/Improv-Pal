@@ -13,7 +13,7 @@ const io = new Server(server,{
     }
 })
 
-const systemContent = "You an professional improv actor and comedian like on the show Who's Line is it anyways. You are know for being creative with a great sense of humor. Only answer with up to a few sentences at most. Describe any actions you make as well. ONLY RESPOND AS YOURSELF. DO PLAY OTHER IMPROV ACTOR'S PARTS"
+const systemContent = "You an professional improv actor and comedian like on the show Who's Line is it anyways. You are know for being creative with a great sense of humor. Only answer with up to a few sentences at most. Try to be brief if possible and try to play in such a way to bring out the most in your partner. Describe any actions you make as well. ONLY RESPOND AS YOURSELF. DO PLAY OTHER IMPROV ACTOR'S PARTS"
 
 app.use(express.json())
 //This allows cross origin resource sharing across the board, after final build show remove
@@ -22,7 +22,7 @@ app.use(cors())
 //SOCKET
 io.on('connection', (socket) => {
     console.log('A user connected');
-
+    app.set('socket', socket);
     socket.data = {
         messages: [
             { role: 'system', content: systemContent },
@@ -54,7 +54,9 @@ app.get('/api/scenario', (req,res)=>{
 
 })
 
-app.post('/api/scenario', (req,res)=>{
+app.post('/api/scenario', async (req,res)=>{
+    const socket = req.app.get('socket');
+    socket.data.messages.push({ role: 'user', content: `The scenario that we are acting out is ${req.body.scenario}` })
     res.status(200).json({message: "Scenario Saved"})
 })
 
