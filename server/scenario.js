@@ -96,6 +96,80 @@ const improvScenes = [
     "Team of astronauts tries to organize a talent show on the International Space Station"
   ];
 
+const improvScenesPaired = [
+  {
+    scene: "You suspect that your new boss is secretly a vampire",
+    roles: [
+      { role: "Employee", description: "concerned about the boss being a vampire" },
+      { role: "Boss", description: "trying to maintain a professional image" }
+    ]
+  },
+  {
+    scene: "Chaperoning a school trip to an amusement park",
+    roles: [
+      { role: "Teacher", description: "responsible for the students" },
+      { role: "Parent Volunteer", description: "helping with supervision" }
+    ]
+  },
+  {
+    scene: "Holiday mascots on criminal trial",
+    roles: [
+      { role: "Santa Claus", description: "defendant" },
+      { role: "Easter Bunny", description: "witness or co-defendant" }
+    ]
+  },
+  {
+    scene: "A writing team trying to think up new fortunes for fortune cookies",
+    roles: [
+      { role: "Writer 1", description: "creative and quirky" },
+      { role: "Writer 2", description: "analytical and logical" }
+    ]
+  },
+  {
+    scene: "A family booking a vacation to space",
+    roles: [
+      { role: "Parent", description: "excited about the space vacation" },
+      { role: "Teenager", description: "skeptical and uninterested" }
+    ]
+  },
+  {
+    scene: "Staff meeting at a zoo for mythical creatures",
+    roles: [
+      { role: "Griffin Keeper", description: "presenting concerns about griffin care" },
+      { role: "Dragon Trainer", description: "proposing new training methods" }
+    ]
+  },
+  {
+    scene: "The first meeting of an unlikely fan club",
+    roles: [
+      { role: "President of the Fan Club", description: "enthusiastic" },
+      { role: "Sceptical Member", description: "doubtful about the fan club's purpose" }
+    ]
+  },
+  {
+    scene: "An award ceremony with bizarre awards",
+    roles: [
+      { role: "Emcee", description: "announcing the awards" },
+      { role: "Winner of the 'Most Unusual Talent' Award", description: "" }
+    ]
+  },
+  {
+    scene: "Grand opening of a restaurant gone wrong",
+    roles: [
+      { role: "Chef", description: "frustrated with kitchen mishaps" },
+      { role: "Waiter/Waitress", description: "dealing with confused customers" }
+    ]
+  },
+  {
+    scene: "Halloween store employees packing up bizarre and unsold costumes",
+    roles: [
+      { role: "Store Manager", description: "making decisions on what to keep" },
+      { role: "Employee", description: "finding humor in the unsold costumes" }
+    ]
+  }
+]
+
+
 const locations = [
     "Space station",
     "Meeting room",
@@ -286,6 +360,10 @@ const characters = [
 export function getRandomFromArray(array){
     const randomIndex = Math.floor(Math.random() * array.length)
     return array[randomIndex]
+}
+
+export function getRandomScenePaired(){
+  return getRandomFromArray(improvScenesPaired)
 }
 
 export function getRandomScene(){
