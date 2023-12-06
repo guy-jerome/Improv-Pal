@@ -18,10 +18,10 @@ export default function Partners({updatePage,selectedPartner, setSelectedPartner
 
   return (
     <div className="main">
-      <h2>Select a Partner</h2>
+      <h1>Select a Partner</h1>
       <h3>{`Selected Partner: ${selectedPartner}`}</h3>
       <h4>{selectedDescription}</h4>
-      <div className="image-grid" style={{ display: 'flex', flexWrap: 'wrap', width: '40rem' }}>
+      <div className="image-grid" style={{ display: 'flex', flexWrap: 'wrap', width: '30rem', justifyContent: 'center'}}>
         {partnerData.map((partner, index) => (
           <button
             key={index}
@@ -31,7 +31,7 @@ export default function Partners({updatePage,selectedPartner, setSelectedPartner
             <img
               src={`/Partners/${partner.png}`} // Assuming the images are in the public/Partners folder
               alt={partner.name}
-              style={{ width: '10rem', height: '10rem', objectFit: 'cover' }}
+              style={{ width: '6rem', height: '6rem', objectFit: 'cover' }}
             />
           </button>
         ))}

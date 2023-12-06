@@ -41,14 +41,14 @@ export default function Scenario({scenario, setScenario, userRole, setUserRole, 
             <Partner updatePage = {updatePage} selectedPartner = {selectedPartner} pageTarget = "partners"/>
 
             <h2>Generate a Random Scenario</h2>
-            <textarea value={scenario} type="text" onChange={scenarioChanged} placeholder="Make a custom scenario" style={{border: '1px solid #bdc3c7', height:'3rem', borderRadius:'.5rem', resize: 'none', fontSize:'16px'}}></textarea>
+            <textarea value={scenario} type="text" onChange={scenarioChanged} placeholder="Make a custom scenario" style={{border: '1px solid #bdc3c7', height:'20vh', borderRadius:'.5rem', resize: 'none', fontSize:'16px', width:'100%'}}></textarea>
             {
                 scenario&&
                 <>
                     <label htmlFor="yourRole">Your Role:</label>
-                    <input id="yourRole" type="text" value={userRole} onChange={yourRoleChanged} placeholder="Enter your role" style={{width:'20%'}}></input>
+                    <input id="yourRole" type="text" value={userRole} onChange={yourRoleChanged} placeholder="Enter your role" style={{width:'80%'}}></input>
                     <label htmlFor="partnersRole">Partner Role:</label>
-                    <input id="partnersRole" type="text" value={partnerRole}  onChange={partnerRoleChanged}placeholder="Enter partner's role" style={{width:'20%'}}></input>
+                    <input id="partnersRole" type="text" value={partnerRole}  onChange={partnerRoleChanged}placeholder="Enter partner's role" style={{width:'80%'}}></input>
                 </>
             }
 

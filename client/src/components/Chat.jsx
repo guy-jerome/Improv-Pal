@@ -2,18 +2,19 @@ import { useState, useEffect } from "react";
 import axios from "axios"
 import './chat.css';
 import socket from "../socket.js"; 
+import Partner from "./Partner.jsx";
 
 const ENDPOINT = 'http://localhost:3000';
 const apiUrl = "http://localhost:3000/api/scenario"
 
-export default function Chat({scenario, updatePage, userRole, partnerRole}) {
+export default function Chat({scenario, updatePage, userRole, partnerRole, selectedPartner, selectedDescription}) {
 
   const [message,setMessage] = useState("");
   const [response,setResponse] = useState("");
 
   const fetchData = async () => {
     try {
-      await axios.post(apiUrl, { scenario: scenario, userRole: userRole, partnerRole: partnerRole });
+      await axios.post(apiUrl, { scenario: scenario, userRole: userRole, partnerRole: partnerRole, selectedPartner, selectedDescription });
     } catch (error) {
       console.error("Error in axios.post:", error);
     }
@@ -36,7 +37,7 @@ export default function Chat({scenario, updatePage, userRole, partnerRole}) {
 
   async function sendMessage(){
     setMessage("")
-    setResponse(prevResponse => `${prevResponse}${prevResponse?'\n\n':""}User: ${message}\n\nFrank: `)
+    setResponse(prevResponse => `${prevResponse}${prevResponse?'\n\n':""}User: ${message}\n\n${selectedPartner}: `)
     socket.emit("message", message)
   }
 
@@ -56,7 +57,7 @@ export default function Chat({scenario, updatePage, userRole, partnerRole}) {
 
   return (
     <div className="main">
-      <h2>Frank</h2>
+      <Partner updatePage = {updatePage} selectedPartner = {selectedPartner} pageTarget = "partners"/>
       <h3>Scenario: {scenario}</h3>
       <textarea value={response} readOnly id="chatArea"></textarea>
       <input type="text" value={message} onChange={textChanged} onKeyDown={handleKeyPress} spellCheck="true"/>

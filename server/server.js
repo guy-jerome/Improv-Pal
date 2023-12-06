@@ -24,9 +24,7 @@ io.on('connection', (socket) => {
     console.log('A user connected');
     app.set('socket', socket);
     socket.data = {
-        messages: [
-            { role: 'system', content: systemContent },
-        ]
+        messages: []
     }
     
     // Listen for messages from the client
@@ -56,8 +54,9 @@ app.get('/api/scenario', (req,res)=>{
 })
 
 app.post('/api/scenario', async (req,res)=>{
-    const {scenario, userRole, partnerRole} = req.body
+    const {scenario, userRole, partnerRole, selectedPartner, selectedDescription } = req.body
     const socket = req.app.get('socket');
+    socket.data.messages.push({role: 'system', content: `${systemContent} You are an improv actor by the name of${selectedPartner} with these personality traits ${selectedDescription}`})
     socket.data.messages.push({ role: 'user', content: `The scenario that we are acting out is ${scenario}
     I am play the role of ${userRole} and you are playing the role of ${partnerRole}` })
     res.status(200).json({message: "Scenario Saved"})

@@ -13,7 +13,7 @@ export default function App() {
     setPage(newPage)
   }
   return (
-    <>
+    <div id="content">
       <header>
         <h1>Improv Pal</h1>
       </header>
@@ -22,7 +22,7 @@ export default function App() {
           <Scenario scenario={scenario} setScenario={setScenario} updatePage={updatePage} 
           userRole={userRole} setUserRole={setUserRole} partnerRole={partnerRole} setPartnerRole={setPartnerRole} selectedPartner={selectedPartner}/>
         ) : page === "chat" ? (
-          <Chat scenario={scenario} setScenario={setScenario} updatePage={updatePage} userRole={userRole} partnerRole={partnerRole}/>
+          <Chat scenario={scenario} setScenario={setScenario} updatePage={updatePage} userRole={userRole} partnerRole={partnerRole} selectedPartner = {selectedPartner} selectedDescription = {selectedDescription}/>
         ) : page === "partners" ? (
           <Partners updatePage={updatePage} selectedPartner={selectedPartner} setSelectedPartner={setSelectedPartner} selectedDescription = {selectedDescription} setSelectedDescription={setSelectedDescription}/>
         ): (
@@ -32,7 +32,7 @@ export default function App() {
       <footer>
         <p>Created By Aaron Roberts</p>
       </footer>
-    </>
+    </div>
 
     )
 }
