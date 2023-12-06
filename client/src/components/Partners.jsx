@@ -17,7 +17,7 @@ export default function Partners({updatePage,selectedPartner, setSelectedPartner
   };
 
   return (
-    <div>
+    <div className="main">
       <h2>Select a Partner</h2>
       <h3>{`Selected Partner: ${selectedPartner}`}</h3>
       <h4>{selectedDescription}</h4>
