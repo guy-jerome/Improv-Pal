@@ -9,9 +9,7 @@ const partnerData = [
     { name: 'Sam', png: 'Sam.png', description: 'Witty and humorous' },
   ];
 
-export default function Partners() {
-  const [selectedPartner, setSelectedPartner] = useState("");
-  const [selectedDescription, setSelectedDescription] = useState("")
+export default function Partners({updatePage,selectedPartner, setSelectedPartner, selectedDescription, setSelectedDescription}) {
 
   const handleImageClick = (imageName,description) => {
     setSelectedPartner(imageName);
@@ -38,6 +36,10 @@ export default function Partners() {
           </button>
         ))}
       </div>
+      {
+        selectedPartner && <button onClick={()=>{updatePage('scenario')}}>Select Scenario</button>
+      }
+
     </div>
   );
 }

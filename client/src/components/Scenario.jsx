@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import PropTypes from 'prop-types';
 
-export default function Scenario({scenario, setScenario, userRole, setUserRole, partnerRole, setPartnerRole, updatePage}){
+export default function Scenario({scenario, setScenario, userRole, setUserRole, partnerRole, setPartnerRole, updatePage, selectedPartner}){
     const apiUrl = 'http://localhost:3000/api/scenario';
 
     useEffect(()=>{
@@ -38,6 +38,14 @@ export default function Scenario({scenario, setScenario, userRole, setUserRole, 
 
     return(
         <div className="main">
+            <div style={{ backgroundColor:'#2ecc71', borderRadius: '1rem' }}>
+                <img
+                src={`/Partners/${selectedPartner}.png`} // Assuming the images are in the public/Partners folder
+                alt={selectedPartner}
+                style={{ width: '5rem', height: '5rem', objectFit: 'cover' }}
+                />
+            </div>
+            <h5>{selectedPartner}</h5>
             <h2>Generate a Random Scenario</h2>
             <input value={scenario} type="text" onChange={scenarioChanged} placeholder="Make a custom scenario"></input>
             {
