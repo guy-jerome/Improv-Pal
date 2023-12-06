@@ -3,7 +3,7 @@ import cors from 'cors'
 import chatbot from './chatbot.js'
 import { Server } from "socket.io"
 import { createServer } from "http"
-import { getRandomScene } from './scenario.js'
+import { getRandomScene, getRandomScenePaired } from './scenario.js'
 const app = express();
 const port = process.env.PORT || 3000;
 const server = createServer(app)
@@ -47,7 +47,8 @@ app.get('/', (req,res)=>{
 
 app.get('/api/scenario', (req,res)=>{
     try{
-        res.status(200).json({scenario: getRandomScene()})
+        
+        res.status(200).json(getRandomScenePaired())
     }catch (error){
         res.status(500).json({error: "Internal Error"})
     }
@@ -55,8 +56,10 @@ app.get('/api/scenario', (req,res)=>{
 })
 
 app.post('/api/scenario', async (req,res)=>{
+    const {scenario, userRole, partnerRole} = req.body
     const socket = req.app.get('socket');
-    socket.data.messages.push({ role: 'user', content: `The scenario that we are acting out is ${req.body.scenario}` })
+    socket.data.messages.push({ role: 'user', content: `The scenario that we are acting out is ${scenario}
+    I am play the role of ${userRole} and you are playing the role of ${partnerRole}` })
     res.status(200).json({message: "Scenario Saved"})
 })
 

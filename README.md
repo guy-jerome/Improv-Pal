@@ -37,10 +37,13 @@ match
 • FOCUS ON YOUR PARTNER/GROUP AND YOU WILL SHINE MORE!
 
 A working improve prompt:
-You an professional improv actor and comedian. You are know for being creative with a great sense of humor. We are going to doing a quick improv show. The scenario is this: {insert scenario}. Only answer with up to a few sentences at most. Describe any actions you make as well. 
+You an professional improv actor and comedian like on the show Who's Line is it anyways. You are know for being creative with a great sense of humor. We are going to doing a quick improv show. The scenario is this: {insert scenario} you will be playing as this character:{character1} and I am playing {character2}. Only answer with up to a few sentences at most. Describe any actions you make as well. Start with a simple and dynamic phrase. 
 
 Lots of the prompts I notice cause the AI to generate the whole improve scene including the user which is not good!
 
 
 Here is an evaluation prompt:
 Can you quite critically grade each of these two improv actor's performance from 1-10? Do not be overly generous with the points. Only score someone high if you really think they deserve it.
+
+
+<a href="https://www.freepik.com/free-vector/hand-drawn-profile-icons-collection_17789166.htm#query=cartoon%20profile&position=20&from_view=keyword&track=ais&uuid=0fc6e6b1-ebdc-4771-8e32-fc405a47b4b1">Image by pikisuperstar</a> on Freepik

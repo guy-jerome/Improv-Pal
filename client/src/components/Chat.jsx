@@ -6,14 +6,14 @@ import socket from "../socket.js";
 const ENDPOINT = 'http://localhost:3000';
 const apiUrl = "http://localhost:3000/api/scenario"
 
-export default function Chat({scenario, setScenario, updatePage}) {
+export default function Chat({scenario, updatePage, userRole, partnerRole}) {
 
   const [message,setMessage] = useState("");
   const [response,setResponse] = useState("");
 
   const fetchData = async () => {
     try {
-      await axios.post(apiUrl, { scenario: scenario });
+      await axios.post(apiUrl, { scenario: scenario, userRole: userRole, partnerRole: partnerRole });
     } catch (error) {
       console.error("Error in axios.post:", error);
     }
@@ -59,7 +59,7 @@ export default function Chat({scenario, setScenario, updatePage}) {
       <h2>Frank</h2>
       <h3>Scenario: {scenario}</h3>
       <textarea value={response} readOnly id="chatArea"></textarea>
-      <input type="text" value={message} onChange={textChanged} onKeyPress={handleKeyPress}/>
+      <input type="text" value={message} onChange={textChanged} onKeyDown={handleKeyPress} spellCheck="true"/>
       <button onClick={sendMessage}>Send Message</button>
       <button onClick={endImprov}>End Improve</button>
     </div>
