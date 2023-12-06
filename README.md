@@ -47,3 +47,9 @@ Can you quite critically grade each of these two improv actor's performance from
 
 
 <a href="https://www.freepik.com/free-vector/hand-drawn-profile-icons-collection_17789166.htm#query=cartoon%20profile&position=20&from_view=keyword&track=ais&uuid=0fc6e6b1-ebdc-4771-8e32-fc405a47b4b1">Image by pikisuperstar</a> on Freepik
+
+Image by <a href="https://www.freepik.com/free-vector/hand-drawn-flat-groovy-psychedelic-background_17743470.htm#query=funky%20background&position=3&from_view=keyword&track=ais&uuid=860a2e23-d1b6-4f66-9ff5-d1bcb414002b">Freepik</a>
+
+More improve Rules:
+
+https://www.pantheater.com/rules-of-improv.html

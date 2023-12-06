@@ -56,6 +56,7 @@ app.get('/api/scenario', (req,res)=>{
 app.post('/api/scenario', async (req,res)=>{
     const {scenario, userRole, partnerRole, selectedPartner, selectedDescription } = req.body
     const socket = req.app.get('socket');
+    socket.data.messages.length = 0;
     socket.data.messages.push({role: 'system', content: `${systemContent} You are an improv actor by the name of${selectedPartner} with these personality traits ${selectedDescription}`})
     socket.data.messages.push({ role: 'user', content: `The scenario that we are acting out is ${scenario}
     I am play the role of ${userRole} and you are playing the role of ${partnerRole}` })
