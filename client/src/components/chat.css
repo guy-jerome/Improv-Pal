@@ -14,16 +14,11 @@ html, body, #root, #content {
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-
-#content {
-  background-image: url('/Backgrounds/background.jpg');
+body{
+  background: url('/public/Backgrounds/background.jpg') no-repeat center center fixed; 
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-color: #702792;
-  
 }
+
 main{
   height: 100%;
   width: 50%;
