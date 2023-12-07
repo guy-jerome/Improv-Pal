@@ -41,7 +41,7 @@ export default function Scenario({scenario, setScenario, userRole, setUserRole, 
             <Partner updatePage = {updatePage} selectedPartner = {selectedPartner} pageTarget = "partners"/>
 
             <h2>Generate a Random Scenario</h2>
-            <textarea value={scenario} type="text" onChange={scenarioChanged} placeholder="Make a custom scenario" style={{border: '1px solid #bdc3c7', height:'20vh', borderRadius:'.5rem', resize: 'none', fontSize:'16px', width:'100%'}}></textarea>
+            <textarea value={scenario} type="text" onChange={scenarioChanged} placeholder="Make a custom scenario" style={{border: '1px solid #bdc3c7', height:'5rem', borderRadius:'.5rem', resize: 'none', fontSize:'16px', width:'100%'}}></textarea>
             {
                 scenario&&
                 <>

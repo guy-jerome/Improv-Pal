@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 const partnerData = [
-    { name: 'Anisha', png: 'Anisha.png', description: 'Friendly and outgoing' },
-    { name: 'BeepBop', png: 'BeepBop.png', description: 'Tech-savvy and creative' },
+    { name: 'Tina', png: 'Tina.png', description: 'Friendly and outgoing' },
+    { name: 'BeeBop', png: 'BeeBop.png', description: 'Tech-savvy and creative' },
     { name: 'Fredric', png: 'Fredric.png', description: 'Adventurous and spontaneous' },
     { name: 'Lucy', png: 'Lucy.png', description: 'Calm and thoughtful' },
     { name: 'Olaf', png: 'Olaf.png', description: 'Energetic and playful' },
@@ -21,7 +21,7 @@ export default function Partners({updatePage,selectedPartner, setSelectedPartner
       <h1>Select a Partner</h1>
       <h3>{`Selected Partner: ${selectedPartner}`}</h3>
       <h4>{selectedDescription}</h4>
-      <div className="image-grid" style={{ display: 'flex', flexWrap: 'wrap', width: '30rem', justifyContent: 'center'}}>
+      <div className="image-grid" style={{ display: 'flex', flexWrap: 'wrap', width: '100%', justifyContent: 'center'}}>
         {partnerData.map((partner, index) => (
           <button
             key={index}
@@ -31,7 +31,7 @@ export default function Partners({updatePage,selectedPartner, setSelectedPartner
             <img
               src={`/Partners/${partner.png}`} // Assuming the images are in the public/Partners folder
               alt={partner.name}
-              style={{ width: '6rem', height: '6rem', objectFit: 'cover' }}
+              style={{ width: '10em', height: '10em', objectFit: 'cover' }}
             />
           </button>
         ))}

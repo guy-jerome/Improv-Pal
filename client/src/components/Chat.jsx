@@ -59,6 +59,9 @@ export default function Chat({scenario, updatePage, userRole, partnerRole, selec
     <div className="main">
       <Partner updatePage = {updatePage} selectedPartner = {selectedPartner} pageTarget = "partners"/>
       <h3>Scenario: {scenario}</h3>
+      <hr style={{width:'100%', margin:'.5rem'}}></hr>
+      <h4>Your Role: {userRole}</h4>
+      <h4>{selectedPartner}`s Role: {partnerRole}</h4>
       <textarea value={response} readOnly id="chatArea" placeholder="Get Improving"></textarea>
       <input type="text" value={message} onChange={textChanged} onKeyDown={handleKeyPress} spellCheck="true" placeholder="Your Message"/>
       <button onClick={sendMessage}>Send Message</button>
