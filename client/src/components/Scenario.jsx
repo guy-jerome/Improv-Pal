@@ -58,16 +58,16 @@ export default function Scenario({
         type="text"
         onChange={scenarioChanged}
         placeholder="Make a custom scenario"
-        style={{ border: '1px solid #bdc3c7', height: '5rem', borderRadius: '.5rem', resize: 'none', fontSize: '16px', width: '100%' }}
+        id="scenario-text-area"
       ></textarea>
 
       {/* Role Inputs */}
       {scenario && (
         <>
           <label htmlFor="yourRole">Your Role:</label>
-          <input id="yourRole" type="text" value={userRole} onChange={yourRoleChanged} placeholder="Enter your role" style={{ width: '80%' }}></input>
+          <input id="yourRole" className = "inputRole" type="text" value={userRole} onChange={yourRoleChanged} placeholder="Enter your role"></input>
           <label htmlFor="partnersRole">Partner Role:</label>
-          <input id="partnersRole" type="text" value={partnerRole} onChange={partnerRoleChanged} placeholder="Enter partner's role" style={{ width: '80%' }}></input>
+          <input id="partnersRole" className = "inputRole" type="text" value={partnerRole} onChange={partnerRoleChanged} placeholder="Enter partner's role"></input>
         </>
       )}
 

@@ -31,7 +31,7 @@ export default function Partners({
       <h4>{selectedDescription}</h4>
 
       {/* Image Grid */}
-      <div className="image-grid" style={{ display: 'flex', flexWrap: 'wrap', width: '100%', justifyContent: 'center' }}>
+      <div className="image-grid">
         {partnerData.map((partner, index) => (
           <button
             key={index}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Chat from "./components/Chat.jsx";
 import Partners from "./components/Partners.jsx";
 import Scenario from "./components/Scenario.jsx";
+import './styles.css';
 
 export default function App() {
   // State variables

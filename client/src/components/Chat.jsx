@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import socket from "../socket.js";
-import './chat.css';
 import Partner from "./Partner.jsx";
 
 const ENDPOINT = 'http://localhost:3000';
