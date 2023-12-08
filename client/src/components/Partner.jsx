@@ -24,7 +24,7 @@ export default function Partner({ updatePage, selectedPartner, pageTarget }) {
         <img
           src={`/Partners/${selectedPartner}.png`} // Assuming the images are in the public/Partners folder
           alt={selectedPartner}
-          style={{ width: '8rem', height: '8rem', objectFit: 'cover' }}
+          style={{ width: '5rem', height: '5rem', objectFit: 'cover' }}
         />
         {/* Tooltip */}
         {tooltipVisible && (

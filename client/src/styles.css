@@ -28,7 +28,6 @@ h1{
 }
 
 main{
-  height: 100%;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -51,7 +50,7 @@ main{
 #chatArea {
   width: 80%;
   max-width: 600px; /* Set a maximum width for larger screens */
-  height: 200px;
+  height: 20rem;
   margin: 10px 0;
   padding: 10px;
   border: 1px solid #bdc3c7;
@@ -91,7 +90,7 @@ input[type="text"] {
 }
 
 button {
-  padding: 10px 15px;
+  padding: .5rem .5rem;
   background-color: #2ecc71;
   color: #fff;
   border: none;
@@ -110,18 +109,6 @@ button:active {
   background-color: #9cb5a7;
 }
 
-/* Media Query for smaller screens */
-@media screen and (max-width: 600px) {
-  .main {
-    width: 90vw;
-  }
-
-  #chatArea,
-  input[type="text"] {
-    width: 90%;
-    max-width: none;
-  }
-}
 
 #loading {
   font-size: 24px;

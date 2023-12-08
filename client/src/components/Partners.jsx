@@ -41,7 +41,10 @@ export default function Partners({
             <img
               src={`/Partners/${partner.png}`} // Assuming the images are in the public/Partners folder
               alt={partner.name}
-              style={{ width: '8em', height: '8em', objectFit: 'cover' }}
+              style={{
+              width: '8rem',
+              height: 'auto', // Maintain aspect ratio
+              objectFit: 'cover',}}
             />
           </button>
         ))}
