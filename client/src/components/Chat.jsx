@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import socket from "../socket.js";
 import Partner from "./Partner.jsx";
@@ -16,6 +16,7 @@ export default function Chat({
 }) {
   const [message, setMessage] = useState("");
   const [response, setResponse] = useState("");
+  const chatAreaRef = useRef(null);
 
   const fetchData = async () => {
     try {
@@ -28,6 +29,7 @@ export default function Chat({
   useEffect(() => {
     const handleIncomingMessage = (data) => {
       setResponse((prevResponse) => prevResponse + data);
+      scrollToBottom();
     };
 
     socket.on('message', handleIncomingMessage);
@@ -40,10 +42,18 @@ export default function Chat({
     };
   }, [scenario]);
 
+
+  function scrollToBottom() {
+    if (chatAreaRef.current) {
+      chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
+    }
+  }
+
   async function sendMessage() {
     setMessage("");
     setResponse((prevResponse) => `${prevResponse}${prevResponse ? '\n\n' : ""}User: ${message}\n\n${selectedPartner}: `);
     socket.emit("message", message);
+    scrollToBottom();
   }
 
   function textChanged(event) {
@@ -54,10 +64,6 @@ export default function Chat({
     if (event.key === "Enter") {
       sendMessage();
     }
-  }
-
-  function endImprov() {
-    updatePage("scenario");
   }
 
   return (
@@ -72,14 +78,20 @@ export default function Chat({
       <h4>{selectedPartner}'s Role: {partnerRole}</h4>
 
       {/* Chat Area */}
-      <textarea value={response} readOnly id="chatArea" placeholder="Get Improving"></textarea>
+      <textarea value={response} ref={chatAreaRef} readOnly id="chatArea" placeholder="Get Improving"></textarea>
 
       {/* Message Input */}
       <input type="text" value={message} onChange={textChanged} onKeyDown={handleKeyPress} spellCheck="true" placeholder="Your Message" />
 
       {/* Buttons */}
       <button onClick={sendMessage}>Send Message</button>
-      <button onClick={endImprov}>End Improv</button>
+      {/* {
+        response&&<button>Get My Evaluation</button>
+      } */}
+      <button onClick={()=>updatePage("evaluation")}>Get My Evaluation</button>
+
+      <button onClick={()=>updatePage("scenario")}>Pick A New Scenario</button>
+
     </div>
   );
 }

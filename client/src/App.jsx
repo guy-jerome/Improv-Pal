@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Chat from "./components/Chat.jsx";
 import Partners from "./components/Partners.jsx";
 import Scenario from "./components/Scenario.jsx";
+import Evaluation from "./components/Evaluation.jsx";
 import './styles.css';
+
 
 export default function App() {
   // State variables
@@ -56,6 +58,13 @@ export default function App() {
             setSelectedDescription={setSelectedDescription}
           />
         );
+      case "evaluation":
+        return(
+          <Evaluation
+            updatePage={updatePage}
+            selectedPartner={selectedPartner}
+          />
+        )
       default:
         return null;
     }
