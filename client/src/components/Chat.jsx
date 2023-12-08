@@ -13,14 +13,15 @@ export default function Chat({
   partnerRole,
   selectedPartner,
   selectedDescription,
+  improvText,
+  setImprovText 
 }) {
   const [message, setMessage] = useState("");
-  const [response, setResponse] = useState("");
   const chatAreaRef = useRef(null);
 
   const fetchData = async () => {
     try {
-      await axios.post(apiUrl, { scenario, userRole, partnerRole, selectedPartner, selectedDescription });
+      await axios.post(apiUrl, { scenario, userRole, partnerRole, selectedPartner, selectedDescription});
     } catch (error) {
       console.error("Error in axios.post:", error);
     }
@@ -28,14 +29,14 @@ export default function Chat({
 
   useEffect(() => {
     const handleIncomingMessage = (data) => {
-      setResponse((prevResponse) => prevResponse + data);
+      setImprovText((prevImprovText) => prevImprovText + data);
       scrollToBottom();
     };
 
     socket.on('message', handleIncomingMessage);
 
     fetchData(); // Call the function immediately
-
+    setImprovText("")
     return () => {
       // Cleanup: Remove the event listener when the component unmounts
       socket.off('message', handleIncomingMessage);
@@ -51,7 +52,7 @@ export default function Chat({
 
   async function sendMessage() {
     setMessage("");
-    setResponse((prevResponse) => `${prevResponse}${prevResponse ? '\n\n' : ""}User: ${message}\n\n${selectedPartner}: `);
+    setImprovText((prevImprovText) => `${prevImprovText}${prevImprovText ? '\n\n' : ""}User: ${message}\n\n${selectedPartner}: `);
     socket.emit("message", message);
     scrollToBottom();
   }
@@ -78,7 +79,7 @@ export default function Chat({
       <h4>{selectedPartner}'s Role: {partnerRole}</h4>
 
       {/* Chat Area */}
-      <textarea value={response} ref={chatAreaRef} readOnly id="chatArea" placeholder="Get Improving"></textarea>
+      <textarea value={improvText} ref={chatAreaRef} readOnly id="chatArea" placeholder="Get Improving"></textarea>
 
       {/* Message Input */}
       <input type="text" value={message} onChange={textChanged} onKeyDown={handleKeyPress} spellCheck="true" placeholder="Your Message" />
@@ -86,7 +87,7 @@ export default function Chat({
       {/* Buttons */}
       <button onClick={sendMessage}>Send Message</button>
       {/* {
-        response&&<button>Get My Evaluation</button>
+        improvText&&<button>Get My Evaluation</button>
       } */}
       <button onClick={()=>updatePage("evaluation")}>Get My Evaluation</button>
 

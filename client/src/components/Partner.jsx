@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function Partner({ updatePage, selectedPartner, pageTarget }) {
   const [tooltipVisible, setTooltipVisible] = useState(false);

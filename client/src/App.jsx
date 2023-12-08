@@ -14,7 +14,7 @@ export default function App() {
   const [partnerRole, setPartnerRole] = useState("");
   const [selectedPartner, setSelectedPartner] = useState("");
   const [selectedDescription, setSelectedDescription] = useState("");
-
+  const [improvText, setImprovText] = useState("");
   // Function to update the current page
   const updatePage = (newPage) => {
     setPage(newPage);
@@ -46,6 +46,8 @@ export default function App() {
             partnerRole={partnerRole}
             selectedPartner={selectedPartner}
             selectedDescription={selectedDescription}
+            improvText={improvText}
+            setImprovText={setImprovText}
           />
         );
       case "partners":
@@ -61,8 +63,10 @@ export default function App() {
       case "evaluation":
         return(
           <Evaluation
+            scenario={scenario}
             updatePage={updatePage}
             selectedPartner={selectedPartner}
+            improvText={improvText}
           />
         )
       default:

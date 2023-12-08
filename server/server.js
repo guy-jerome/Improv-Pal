@@ -1,10 +1,10 @@
-import express from "express";
+import express, { response } from "express";
 import cors from 'cors';
 import { createServer } from "http";
 import { Server } from "socket.io";
 import chatbot from './chatbot.js';
 import { getRandomScenePaired } from './scenario.js';
-
+import evaluator from "./evaluator.js";
 const app = express();
 const port = process.env.PORT || 3000;
 const server = createServer(app);
@@ -75,6 +75,18 @@ app.post('/api/scenario', async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+app.post('/api/evaluation', async (req, res) =>{
+  const {scenario, improvText} = req.body
+  try{
+    const response = await evaluator(improvText, scenario)
+    res.status(200).send(response)
+  }catch (error) {
+    // Handle scenario saving errors
+    console.error("Error saving scenario:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+})
 
 server.listen(port, () => {
   console.log("Server Listening on Port:", port);

@@ -122,3 +122,24 @@ button:active {
     max-width: none;
   }
 }
+
+#loading {
+  font-size: 24px;
+  text-align: center;
+  animation: loadingAnimation 1s infinite ease-in-out;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}

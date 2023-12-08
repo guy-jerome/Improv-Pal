@@ -5,7 +5,7 @@ dotenv.config();
 
 const openai = new OpenAI({apiKey: process.env.CHATGPT_API_KEY});
 
-const systemContent = 'You are a professional improve acting coach and judge with over 50 years of experience, you judge fairly'
+const systemContent = 'You are a professional improve acting coach and judge with over 50 years of experience, you judge very critically and give high scores sparingly'
 
 const improvShow = `User: Oh, let's make some really fun fortunes!
 
@@ -82,14 +82,11 @@ Category 4: Overall Impact (0 - 10 points)
 Total Points: 0 - 40`
 
 
-const instructionPrompt = `Judge the following improv show transcript very critically and harshly only judging the user's part in the improv show give high scores only when following the grading rubric: ${improvShow} use this grading rubric ${gradingPrompt}`
 
 
+export default async function evaluator(improvShow, scenario){
 
-
-
-
-export default async function evaluator(systemContent,instructionPrompt){
+  const instructionPrompt = `Judge the following improv show transcript very critically and harshly only judging the user's part in the improv show give high scores only when following the grading rubric: Improv Scenario ${scenario} \n ${improvShow} use this grading rubric ${gradingPrompt}`
   const response = await openai.chat.completions.create({
     model: 'gpt-3.5-turbo',
     messages: [
@@ -128,14 +125,14 @@ export default async function evaluator(systemContent,instructionPrompt){
               mimimum:0,
               maximum:10
             },
+            scoringExplaination:{
+              type: "string"
+            }
           }
         }
       }
     ],
     function_call: {name:"createImprovEval"}
   })
-  console.log(response.choices[0])
+  return response.choices[0].message.function_call.arguments
 }
-
-await evaluator(systemContent,instructionPrompt)
-
