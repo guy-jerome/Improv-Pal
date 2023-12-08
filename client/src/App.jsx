@@ -78,7 +78,7 @@ export default function App() {
     <div id="content">
       {/* Header */}
       <header>
-        <h1>Improv Pal</h1>
+        <h1 class="title">Improv <img src="/Icons/android-chrome-512x512.png" className="title-icon"></img></h1>
       </header>
 
       {/* Main Content */}

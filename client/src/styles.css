@@ -27,6 +27,15 @@ h1{
   margin: 1em;
 }
 
+.title{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  font-size: 2rem
+}
+
+.title-icon{
+  width: 3rem;
+}
 main{
   width: 50%;
   display: flex;

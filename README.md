@@ -1,6 +1,21 @@
 # Improv-Pal
 This is a ChatGTP integrated app that lets you practice improve with a virtual improv Pal
 
+
+HOW TO SET UP THE PROJECT:
+
+Fork and clone the repo:
+run this command in /Improv-Pal/client/npm run dev //this runs the front end
+and
+/Improv-Pal/server/npm run dev  //This runs the backend
+You need to make a .env file in your server folder.
+There is a .env.template
+copy that code into the .env file
+insert your OPENAPI API KEY in the appropreate field, don't worry about the pinecone now.
+I'll send you the key if you need one.
+
+
+
 Here is a good article on prompt engineering:
 https://github.com/kevinamiri/Instructgpt-prompts
 

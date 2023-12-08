@@ -86,10 +86,10 @@ export default function Chat({
 
       {/* Buttons */}
       <button onClick={sendMessage}>Send Message</button>
-      {/* {
-        improvText&&<button>Get My Evaluation</button>
-      } */}
-      <button onClick={()=>updatePage("evaluation")}>Get My Evaluation</button>
+      {
+              
+          improvText&&<button onClick={()=>updatePage("evaluation")}>Get My Evaluation</button>
+      }
 
       <button onClick={()=>updatePage("scenario")}>Pick A New Scenario</button>
 
