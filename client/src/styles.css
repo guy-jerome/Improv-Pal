@@ -27,6 +27,16 @@ h1{
   margin: 1em;
 }
 
+header{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+header button{
+  justify-self: flex-end;
+}
+
 .title{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-style: italic;

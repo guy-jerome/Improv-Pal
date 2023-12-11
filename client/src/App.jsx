@@ -3,6 +3,7 @@ import Chat from "./components/Chat.jsx";
 import Partners from "./components/Partners.jsx";
 import Scenario from "./components/Scenario.jsx";
 import Evaluation from "./components/Evaluation.jsx";
+import Login from "./components/Login.jsx"
 import './styles.css';
 
 
@@ -69,6 +70,10 @@ export default function App() {
             improvText={improvText}
           />
         )
+      case "login":
+        return(
+          <Login/>
+        )
       default:
         return null;
     }
@@ -79,6 +84,7 @@ export default function App() {
       {/* Header */}
       <header>
         <h1 class="title">Improv <img src="/Icons/android-chrome-512x512.png" className="title-icon"></img></h1>
+        <button onClick={()=>{}}>Login</button>
       </header>
 
       {/* Main Content */}
