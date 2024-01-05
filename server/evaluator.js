@@ -107,26 +107,63 @@ export default async function evaluator(improvShow, scenario){
           properties:{
             category1RuleAdherence:{
               type: "integer",
+              description:`Category 1: Rule Adherence (0 - 10 points)
+
+              1a) Say "Yes'and!" Participants consistently demonstrate acceptance of their partner's contributions and build upon them, fostering a collaborative and positive scene.
+              
+              1b) Add new information Participants effectively introduce new information after saying "Yes'and," allowing the scene to progress and evolve.
+              
+              1c) Don't block Participants avoid blocking or denial, ensuring the smooth flow of information and preventing disruption to the scene.
+              
+              1d) Avoid questions Participants minimize the use of questions that hinder the progress of the scene and demonstrate an understanding of when questions can be effectively utilized.
+              
+              1e) Play in the present and use the moment  Participants maintain a focus on the current moment, engaging with their partner's actions and reactions in real-time.`,
               mimimum:0,
               maximum:10
             },
             category2SceneDevelopment:{
               type: "integer",
+              description: `Category 2: Scene Development (0 - 10 points)
+
+              2a) Establish the location : Participants effectively set the stage by establishing a clear and tangible location for the scene.
+              
+              2b) Be specific and provide colorful details : Participants enrich the scene with vivid details, creating a more engaging and immersive experience.
+              
+              2c) Change, Change, Change! : Participants ensure that their characters undergo meaningful changes, contributing to the overall interest and dynamics of the scene.
+              
+              2d) Focus on characters and relationships : Participants demonstrate an ability to bring depth and emotion to serious and emotional scenes by emphasizing characters and relationships.
+              
+              2e) Take choices to the nth degree or focus on actions/objects : Participants effectively utilize humor by committing to choices, taking them to the extreme, or focusing on amusing actions and objects in humorous scenes.`,
               mimimum:0,
               maximum:10
             },
             category3ExecutionandCreativity:{
               type: "integer",
+              description:`Category 3: Execution and Creativity (0 - 10 points)
+
+              3a) Commitment and consistency : Participants display commitment to their chosen characters, choices, and the overall scene, maintaining consistency throughout.
+              
+              3b) Creativity and originality : Participants demonstrate creativity in their responses, introducing unique elements and approaches to scene development.
+              
+              3c) Moment-to-moment objectives : Participants show an awareness of moment-to-moment objectives, adapting and responding to changes in the scene dynamically.`,
               mimimum:0,
               maximum:10
             },
             category4OverallImpact:{
               type: "integer",
+              description:`Category 4: Overall Impact (0 - 10 points)
+
+              4a) Engagement and captivation : Participants create scenes that captivate the audience, demonstrating a strong ability to engage and maintain interest.
+              
+              4b) Flow and cohesion : Participants ensure a smooth flow of the scene, maintaining cohesion and avoiding disruptions that may hinder the overall performance.
+              
+              Total Points: 0 - 40`,
               mimimum:0,
               maximum:10
             },
             scoringExplaination:{
-              type: "string"
+              type: "string",
+              description:`Explain How and Why each participant got each score adding constructive criticism.`
             }
           }
         }

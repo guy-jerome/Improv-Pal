@@ -1,3 +1,5 @@
+//This is just a simple random improv scene generator
+
 const improvScenes = [
     "You suspect that your new boss is secretly a vampire",
     "Chaperoning a school trip to an amusement park",
