@@ -1,14 +1,19 @@
+// Import the useState hook from React
 import { useState } from "react";
+
+// Import components from the components directory
 import Chat from "./components/Chat.jsx";
 import Partners from "./components/Partners.jsx";
 import Scenario from "./components/Scenario.jsx";
 import Evaluation from "./components/Evaluation.jsx";
-import Login from "./components/Login.jsx"
+import Login from "./components/Login.jsx";
+
+// Import the styles.css file
 import './styles.css';
 
-
+// Define the App component
 export default function App() {
-  // State variables
+  // State variables using the useState hook
   const [scenario, setScenario] = useState("");
   const [page, setPage] = useState("partners");
   const [userRole, setUserRole] = useState("");
@@ -16,12 +21,13 @@ export default function App() {
   const [selectedPartner, setSelectedPartner] = useState("");
   const [selectedDescription, setSelectedDescription] = useState("");
   const [improvText, setImprovText] = useState("");
+
   // Function to update the current page
   const updatePage = (newPage) => {
     setPage(newPage);
   };
 
-  // Switch statement for conditional rendering
+  // Switch statement for conditional rendering of different pages based on the current page state
   const renderPage = () => {
     switch (page) {
       case "scenario":
@@ -79,11 +85,14 @@ export default function App() {
     }
   };
 
+  // Return the JSX for the App component
   return (
     <div id="content">
       {/* Header */}
       <header>
+        {/* Title */}
         <h1 class="title">Improv <img src="/Icons/android-chrome-512x512.png" className="title-icon"></img></h1>
+        {/* Login Button (No functionality implemented yet) */}
         <button onClick={()=>{}}>Login</button>
       </header>
 
@@ -97,6 +106,5 @@ export default function App() {
     </div>
   );
 }
-
 
 
